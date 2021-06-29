@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import model.projetos.Participacao;
+import util.ValidadoraFormatoEmailLogin;
 
 /**
  * @author NPG
@@ -21,11 +22,12 @@ public class Membro implements Serializable {
 	private boolean ativo;
 	private String email;
 	private boolean administrador;
-
 	private String senha;
 
 	private ArrayList<Participacao> participacoes = new ArrayList<Participacao>();
 
+	
+	
 	public void adicionarParticipacao(Participacao participacao) {
 //		Esse metodo foi criado para tratar a operacao da classe Projeto 
 //		na parte do composite do projeto.
@@ -59,20 +61,30 @@ public class Membro implements Serializable {
 		return matricula;
 	}
 	public void setMatricula(long matricula) {
+		if(Long.toString(matricula).length() != 9)
+			throw new UnsupportedOperationException("[ERRO] As matrículas devem ter 9 dígitos.");
+			
 		this.matricula = matricula;
 	}
 
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	public boolean setNome(String nome) {
+		if(nome.length() < 15 || nome.length() > 60)
+			throw new UnsupportedOperationException("[ERRO] Nomes de membros devem ter entre 15 e 60 caracteres.");
+			
 		this.nome = nome;
+		return true;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
+		if(!ValidadoraFormatoEmailLogin.validarLoginComum(email))
+			throw new UnsupportedOperationException("[ERRO] O email não possui um formato válido");
+			
 		this.email = email;
 	}
 
@@ -94,6 +106,10 @@ public class Membro implements Serializable {
 		return senha;
 	}
 	public void setSenha(String senha) {
+		if(senha.length() < 6 || senha.length() > 8)
+			throw new UnsupportedOperationException("[ERRO] Senhas de membros devem ter entre 6 e 8 caracteres.");
+			
+		
 		this.senha = senha;
 	}
 
