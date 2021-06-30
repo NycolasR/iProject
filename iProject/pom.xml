@@ -7,10 +7,19 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>iProject</name>
 
+<!-- 
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
+ -->
+ 
+ <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <junit.jupiter.version>5.0.0-M2</junit.jupiter.version>
+    <junit.platform.version>1.0.0-M2</junit.platform.version>
+</properties>
 
 	<dependencies>
 		<dependency>
@@ -40,7 +49,7 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-runner</artifactId>
-			<version>1.8.0-M1</version>
+			<version>1.4.1</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
@@ -52,19 +61,22 @@
 		</dependency>
 
 	</dependencies>
+	
 
 	<build>
-		<!-- XXX: Para forçar o uso da versão dos plugins que dá suporte ao JUnit 
+		<!--
+		 XXX: Para forçar o uso da versão dos plugins que dá suporte ao JUnit 
 			5 Referência: https://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.test.plugin}</version>
+				<version>2.22.2</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>${maven.test.plugin}</version>
+				<version>2.22.2</version>
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
