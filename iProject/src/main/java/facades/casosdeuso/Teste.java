@@ -3,8 +3,6 @@ package facades.casosdeuso;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import javax.activity.InvalidActivityException;
-
 import model.projetos.Edital;
 import model.projetos.Grupo;
 import model.projetos.Projeto;

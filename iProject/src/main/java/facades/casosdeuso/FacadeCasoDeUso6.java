@@ -5,7 +5,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.activity.InvalidActivityException;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -78,7 +77,7 @@ public class FacadeCasoDeUso6 {
 
 			} else {
 				logger.severe("Membro tentou adicionar participantes no projeto " + projeto.getNome() + " sem permissão");
-				throw new InvalidActivityException("Este membro não tem permissão de adicionar participantes neste projeto");
+				throw new Exception("Este membro não tem permissão de adicionar participantes neste projeto");
 			}
 
 			CentralAtualizacaoItemProjeto.atualizarProjeto(codigoProjeto, projeto);
@@ -118,7 +117,7 @@ public class FacadeCasoDeUso6 {
 
 			} else {
 				logger.severe("Membro tentou remover participantes no projeto " + projeto.getNome() + " sem permissão");
-				throw new InvalidActivityException("Este membro não tem permissão de remover participantes neste projeto");
+				throw new Exception("Este membro não tem permissão de remover participantes neste projeto");
 			}
 
 			CentralAtualizacaoItemProjeto.atualizarProjeto(codigoProjeto, projeto);
