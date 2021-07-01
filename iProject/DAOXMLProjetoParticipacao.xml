@@ -105,9 +105,41 @@
             </model.projetos.Participacao>
           </participacoes>
         </model.autenticacao.Membro>
+        <model.autenticacao.Membro>
+          <matricula>222222222</matricula>
+          <ativo>true</ativo>
+          <email>user2@user.com</email>
+          <administrador>false</administrador>
+          <senha>senha2</senha>
+          <participacoes>
+            <model.projetos.Participacao>
+              <codigo>1</codigo>
+              <ativo>true</ativo>
+              <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+              <dataInicio>2021-08-02</dataInicio>
+              <dataTermino>2021-12-12</dataTermino>
+              <aporteCusteioMensalReais>20.0</aporteCusteioMensalReais>
+              <qtdMesesCusteados>0</qtdMesesCusteados>
+              <qtdMesesPagos>0</qtdMesesPagos>
+              <coordenador>false</coordenador>
+              <membro reference="../../.."/>
+              <horariosPrevistos/>
+              <pontosTrabalhados>
+                <ponto.model.projetos.PontoTrabalhado>
+                  <dataHoraEntrada>2021-07-01T16:13:03.4638252</dataHoraEntrada>
+                  <dataHoraSaida>2021-07-01T16:13:35.0257159</dataHoraSaida>
+                  <justificativaAceita>false</justificativaAceita>
+                  <valido>false</valido>
+                  <id>1625166783463</id>
+                </ponto.model.projetos.PontoTrabalhado>
+              </pontosTrabalhados>
+            </model.projetos.Participacao>
+          </participacoes>
+        </model.autenticacao.Membro>
       </membros>
       <participacoes>
         <model.projetos.Participacao reference="../../membros/model.autenticacao.Membro/participacoes/model.projetos.Participacao"/>
+        <model.projetos.Participacao reference="../../membros/model.autenticacao.Membro[2]/participacoes/model.projetos.Participacao"/>
       </participacoes>
     </model.projetos.Projeto>
   </entry>

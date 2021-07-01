@@ -23,11 +23,12 @@ public class ControllerTelaPonto {
 	private RegistradorSessaoLogin registradorSessaoLogin;
 	private FabricaTela fabricaTela;
 	
-	public ControllerTelaPonto() throws Exception{
-		
+	public ControllerTelaPonto(){
+		try {
 		 registradorProxy = (ProxyInterface) Naming.lookup("RegistradorPontoCentral");
 		 registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 		 fabricaTela = new FabricaTelaSwing();
+		}catch (Exception e) {}
 	}
 	
 	
@@ -35,11 +36,17 @@ public class ControllerTelaPonto {
 		return registradorProxy.getTodosOsProjetos();
 	}
 		
-	public boolean registrarPonto(long codProjeto) throws Exception {
+	public boolean registrarPonto(long codProjeto){
 		
-		registradorProxy.registrarPonto(codProjeto, registradorSessaoLogin.getMembroLogado().getEmail());
+		try {
+			registradorProxy.registrarPonto(codProjeto, registradorSessaoLogin.getMembroLogado().getEmail());
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		
-		return true;
+		
 
 	}
 	
