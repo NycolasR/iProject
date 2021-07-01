@@ -62,7 +62,7 @@ public class Membro implements Serializable {
 	}
 	public void setMatricula(long matricula) {
 		if(Long.toString(matricula).length() != 9)
-			throw new UnsupportedOperationException("[ERRO] As matrículas devem ter 9 dígitos.");
+			throw new UnsupportedOperationException("[ERRO] As matrï¿½culas devem ter 9 dï¿½gitos.");
 			
 		this.matricula = matricula;
 	}
@@ -70,12 +70,8 @@ public class Membro implements Serializable {
 	public String getNome() {
 		return nome;
 	}
-	public boolean setNome(String nome) {
-		if(nome.length() < 15 || nome.length() > 60)
-			throw new UnsupportedOperationException("[ERRO] Nomes de membros devem ter entre 15 e 60 caracteres.");
-			
+	public void setNome(String nome) {
 		this.nome = nome;
-		return true;
 	}
 
 	public String getEmail() {
@@ -83,7 +79,7 @@ public class Membro implements Serializable {
 	}
 	public void setEmail(String email) {
 		if(!ValidadoraFormatoEmailLogin.validarLoginComum(email))
-			throw new UnsupportedOperationException("[ERRO] O email não possui um formato válido");
+			throw new UnsupportedOperationException("[ERRO] O email nï¿½o possui um formato vï¿½lido");
 			
 		this.email = email;
 	}
@@ -123,6 +119,10 @@ public class Membro implements Serializable {
 
 	public void desativar() {
 		this.ativo = false;
+	}
+	
+	public boolean equals(Membro membro) {
+		return membro.getMatricula() == this.getMatricula();
 	}
 	
 	@Override

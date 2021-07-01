@@ -1,17 +1,6 @@
-
-jun 27, 2021 9:05:37 PM facades.casosdeuso.FacadeCasoDeUso1
-getTodosOsMembros
-INFORMAÇÕES: [XMLMembroConta] - Recuperou membros
-registrados
-jun 27, 2021 9:05:51 PM facades.casosdeuso.FacadeCasoDeUso2
-fazerLogin
-INFORMAÇÕES: class facades.casosdeuso.FacadeCasoDeUso2
-admin@admin.com fez login com sucesso!
-jun 27, 2021 9:06:03 PM
-facades.casosdeuso.FacadeCasoDeUso1 getTodosOsMembros
-INFORMAÇÕES:
-[XMLMembroConta] - Recuperou membros registrados
-jun 27, 2021 9:06:07 PM
-facades.casosdeuso.FacadeCasoDeUso1 getTodosOsMembros
-INFORMAÇÕES:
-[XMLMembroConta] - Recuperou membros registrados
+jul 01, 2021 1:12:36 AM facades.casosdeuso.FacadeCasoDeUso2 fazerLogin
+GRAVE: java.lang.Exception: Este membro não existe
+jul 01, 2021 1:12:36 AM facades.casosdeuso.FacadeCasoDeUso2 fazerLogin
+INFORMAÇÕES: class facades.casosdeuso.FacadeCasoDeUso2 admin@admin.com fez login com sucesso!
+jul 01, 2021 1:12:36 AM facades.casosdeuso.FacadeCasoDeUso2 fazerLogin
+ADVERTÊNCIA: class facades.casosdeuso.FacadeCasoDeUso2 Dados de login invalidos

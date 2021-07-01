@@ -1,6 +1,10 @@
 package facades.casosdeuso;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.logging.Logger;
+
+import org.junit.jupiter.api.Test;
 
 import model.autenticacao.Conta;
 import model.autenticacao.ContaAutenticacaoProvedorEmailSMTP;
@@ -27,74 +31,80 @@ public class FacadeCasoDeUso2 {
 
 	private DAOXMLMembroConta daoxmlMembroConta;
 	private RegistradorSessaoLogin registradorSessaoLogin;
-	
+
 	private Logger myLogger = MyLogger.getInstance();
-	
-	
+
+
 	//A sobrescrita do construtor vai setar as instancias nos atributos desta fachada
 	public FacadeCasoDeUso2() {
 		daoxmlMembroConta = new DAOXMLMembroConta();
 		registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 	}
 	
+	public static void main(String[] args) {
+		FacadeCasoDeUso2 facadeCasoDeUso2 = new FacadeCasoDeUso2();
+		System.out.println(facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin12", TipoProvedorAutenticacao.INTERNO));
+		System.out.println(facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO));
+		
+	}
+
 	public boolean fazerLogin(String email,
 			String senha,
 			TipoProvedorAutenticacao tipo)  {
-		
+
 		// Resgatando o usuario dos usuarios registrados
 		Membro membro;
 		try {
 			membro = daoxmlMembroConta.getMembroPeloLogin(email);
-			
+
 			// Especificando a abstracao e conta que o usuario preferir
-			ProvedorConta conta =
-					tipo == TipoProvedorAutenticacao.INTERNO ?
-							new ContaAutenticacaoProvedorInterno() : new ContaAutenticacaoProvedorEmailSMTP();
-							
-							Conta contaAbstracao = identificarConta(email);
-							
-							// Setando os atributos da implementacao de conta
-							conta.setLogin(email);
-							conta.setSenha(senha);
-							
-							/*
-							 * TODO FEITO 
-							 * Este enum poderia ser realocado para Membro. Codigo da fachada em operacoes que usem ou precisem devidir
-							 * qual a implementacao de provedo de conta devem setar tal classe de implementacao com base neste enum, configurado no membro.
-							 * TODO FEITO [UML] Acrescentar atributo em Membro e removê-lo de Conta
-							 */
-							membro.setTipo(tipo);
-							
-							contaAbstracao.setConta(conta);
-							membro.setContaAbstracao(contaAbstracao);
-							
-							// Tentará fazer a autenticacao
-							if(contaAbstracao.autenticar(email, senha, false)) {
-								registradorSessaoLogin.registrarOnline(membro);
-								
-								myLogger.info(this.getClass() +" "+ email + " fez login com sucesso!");
-								
-								return true;
-							}
-							
-							myLogger.warning(this.getClass() + " Dados de login invalidos");
-							
-							
+			ProvedorConta conta = tipo == TipoProvedorAutenticacao.INTERNO ?
+				new ContaAutenticacaoProvedorInterno() : new ContaAutenticacaoProvedorEmailSMTP();
+
+			Conta contaAbstracao = identificarConta(email);
+
+			// Setando os atributos da implementacao de conta
+			conta.setLogin(email);
+			conta.setSenha(senha);
+
+			/*
+			 * TODO FEITO 
+			 * Este enum poderia ser realocado para Membro. Codigo da fachada em operacoes que usem ou precisem devidir
+			 * qual a implementacao de provedo de conta devem setar tal classe de implementacao com base neste enum, configurado no membro.
+			 * TODO FEITO [UML] Acrescentar atributo em Membro e removê-lo de Conta
+			 */
+			membro.setTipo(tipo);
+
+			contaAbstracao.setConta(conta);
+			membro.setContaAbstracao(contaAbstracao);
+
+			// Tentará fazer a autenticacao
+			if(!contaAbstracao.autenticar(email, senha, false))
+				return false;
+
+			registradorSessaoLogin.registrarOnline(membro);
+			
+			myLogger.info(this.getClass() +" "+ email + " fez login com sucesso!");
+			
+			myLogger.warning(this.getClass() + " Dados de login invalidos");
+			
+			return true;
+
 		} catch (Exception e) {
 			myLogger.severe(e.toString());
+			return false;
 		}
-		
-		return false;
+
 	}
-	
+
 	public boolean isAdministrador(String email)  throws Exception {
 		Membro membro = daoxmlMembroConta.getMembroPeloLogin(email);
-		
+
 		return membro.isAdministrador();
-		
+
 	}
-	
-		
+
+
 	/**
 	 * Simple factory para fabricar abstracoes de conta com base no email passado como parametro de entrada.
 	 * @param email Email para ser validado como um dos tipos de conta.
@@ -104,10 +114,10 @@ public class FacadeCasoDeUso2 {
 	private Conta identificarConta(String email) throws Exception {
 		if(ValidadoraFormatoEmailLogin.validarLoginIFPB(email))
 			return new ContaEmailIFPB();
-		
+
 		else if(ValidadoraFormatoEmailLogin.validarLoginComum(email))
 			return new ContaEmailLivre();
-		
+
 		throw new Exception("Formato de email inválido.");
 	}
 }

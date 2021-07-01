@@ -37,23 +37,24 @@ public class FacadeCasoDeUso1 {
 			// Verifica se o email é valido.
 			if(ValidadoraFormatoEmailLogin.validarLoginComum(login)) {
 				Membro membro = new Membro();
-				setarAtributos(membro, matricula, nome, login, senha);
-				membro.ativar();
-				
-				Set<Membro> provisorio = daoxmlMembroConta.getTodosRegistros();
-				
-				membro.setAdministrador(provisorio.isEmpty()); // Se nao houver nenhum membro cadastrado esta instancia de membro será o administrador.
-				
-				daoxmlMembroConta.criar(membro);
-				
-				myLogger.info(this.getClass() + " - Membro Criado e gravado com sucesso!");
-				
-				return true;
+				if(setarAtributos(membro, matricula, nome, login, senha)) {					
+					membro.ativar();
+					
+					Set<Membro> provisorio = daoxmlMembroConta.getTodosRegistros();
+					
+					membro.setAdministrador(provisorio.isEmpty()); // Se nao houver nenhum membro cadastrado esta instancia de membro será o administrador.
+					
+					daoxmlMembroConta.criar(membro);
+					
+					myLogger.info(this.getClass() + " - Membro Criado e gravado com sucesso!");
+					
+					return true;
+				}
 			}
 			
 			myLogger.warning(this.getClass() +" Formato de Login invalido");
 			
-		}catch(Exception e) {
+		} catch(Exception e) {
 			myLogger.severe(e.toString());
 		}
 			
@@ -85,13 +86,51 @@ public class FacadeCasoDeUso1 {
 	
 		
 	// Método que seta os valores dos atributos de um membro.
-	// TODO FEITO [UML] alterar nome
-	private void setarAtributos(Membro membro, long matricula ,String nome, String login, String senha) {
-		membro.setNome(nome);
-		membro.setEmail(login);
-		membro.setSenha(senha);
-		membro.setMatricula(matricula);
+	private boolean setarAtributos(Membro membro, long matricula, String nome, String email, String senha) {
+		setarMatricula(membro, matricula);
+		setarNome(membro, nome);
+		setarEmail(membro, email);
+		setarSenha(membro, senha);
+		
+		return true;
 	}
+	
+	public boolean setarMatricula(Membro membro, long matricula) {
+		// Matrículas de membros deve ser um valor numérico de 9 dígitos
+		if(Long.toString(matricula).length() != 9)
+			return false;
+		
+		membro.setMatricula(matricula);
+		return true;
+	}
+
+	public boolean setarNome(Membro membro, String nome) {
+		// Nomes devem ter entre 15 e 60 caracteres
+		if(nome.length() < 15 || nome.length() > 60)
+			return false;
+		
+		membro.setNome(nome);
+		return true;
+	}
+
+	public boolean setarEmail(Membro membro, String email) {
+		// E-mails devem obedecer o formato convencional
+		if(!ValidadoraFormatoEmailLogin.validarLoginComum(email))
+			return false;
+		
+		membro.setEmail(email);
+		return true;
+	}
+
+	public boolean setarSenha(Membro membro, String senha) {
+		// Senhas devem ter entre 6 e 8 caracteres
+		if(senha.length() < 6 || senha.length() > 8)
+			return false;
+		
+		membro.setSenha(senha);
+		return true;
+	}
+	
 	
 	public Membro[] getTodosOsMembros() {
 		Set<Membro> membrosRegistrados = daoxmlMembroConta.getTodosRegistros();
