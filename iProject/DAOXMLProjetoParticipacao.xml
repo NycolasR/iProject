@@ -1,5 +1,75 @@
 <map>
   <entry>
+    <long>158935788</long>
+    <model.projetos.Projeto>
+      <codigo>158935788</codigo>
+      <nome>Projeto 2</nome>
+      <ativo>true</ativo>
+      <tipoItemProjeto>PROJETO</tipoItemProjeto>
+      <aporteCusteioReais>7000.0</aporteCusteioReais>
+      <aporteCapitalReais>3000.0</aporteCapitalReais>
+      <gastoExecutadoCusteioReais>0.0</gastoExecutadoCusteioReais>
+      <gastoExecutadoCapitalReais>0.0</gastoExecutadoCapitalReais>
+      <membros>
+        <model.autenticacao.Membro>
+          <matricula>123456789</matricula>
+          <nome>admin</nome>
+          <ativo>true</ativo>
+          <email>admin@admin.com</email>
+          <administrador>true</administrador>
+          <senha>admin123</senha>
+          <participacoes>
+            <model.projetos.Participacao>
+              <codigo>1</codigo>
+              <ativo>true</ativo>
+              <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+              <dataInicio>2021-08-02</dataInicio>
+              <dataTermino>2021-12-12</dataTermino>
+              <aporteCusteioMensalReais>100.0</aporteCusteioMensalReais>
+              <qtdMesesCusteados>0</qtdMesesCusteados>
+              <qtdMesesPagos>0</qtdMesesPagos>
+              <coordenador>true</coordenador>
+              <membro reference="../../.."/>
+              <horariosPrevistos/>
+              <pontosTrabalhados/>
+            </model.projetos.Participacao>
+            <model.projetos.Participacao>
+              <codigo>1</codigo>
+              <ativo>true</ativo>
+              <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+              <dataInicio>2021-08-02</dataInicio>
+              <dataTermino>2021-12-12</dataTermino>
+              <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
+              <qtdMesesCusteados>0</qtdMesesCusteados>
+              <qtdMesesPagos>0</qtdMesesPagos>
+              <coordenador>true</coordenador>
+              <membro reference="../../.."/>
+              <horariosPrevistos/>
+              <pontosTrabalhados/>
+            </model.projetos.Participacao>
+            <model.projetos.Participacao>
+              <codigo>2</codigo>
+              <ativo>true</ativo>
+              <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+              <dataInicio>2021-08-02</dataInicio>
+              <dataTermino>2021-12-12</dataTermino>
+              <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
+              <qtdMesesCusteados>0</qtdMesesCusteados>
+              <qtdMesesPagos>0</qtdMesesPagos>
+              <coordenador>true</coordenador>
+              <membro reference="../../.."/>
+              <horariosPrevistos/>
+              <pontosTrabalhados/>
+            </model.projetos.Participacao>
+          </participacoes>
+        </model.autenticacao.Membro>
+      </membros>
+      <participacoes>
+        <model.projetos.Participacao reference="../../membros/model.autenticacao.Membro/participacoes/model.projetos.Participacao[3]"/>
+      </participacoes>
+    </model.projetos.Projeto>
+  </entry>
+  <entry>
     <long>157423848</long>
     <model.projetos.Projeto>
       <codigo>157423848</codigo>
@@ -38,6 +108,62 @@
       </membros>
       <participacoes>
         <model.projetos.Participacao reference="../../membros/model.autenticacao.Membro/participacoes/model.projetos.Participacao"/>
+      </participacoes>
+    </model.projetos.Projeto>
+  </entry>
+  <entry>
+    <long>158924708</long>
+    <model.projetos.Projeto>
+      <codigo>158924708</codigo>
+      <nome>Projeto 3</nome>
+      <ativo>true</ativo>
+      <tipoItemProjeto>PROJETO</tipoItemProjeto>
+      <aporteCusteioReais>7000.0</aporteCusteioReais>
+      <aporteCapitalReais>3000.0</aporteCapitalReais>
+      <gastoExecutadoCusteioReais>0.0</gastoExecutadoCusteioReais>
+      <gastoExecutadoCapitalReais>0.0</gastoExecutadoCapitalReais>
+      <membros>
+        <model.autenticacao.Membro>
+          <matricula>123456789</matricula>
+          <nome>admin</nome>
+          <ativo>true</ativo>
+          <email>admin@admin.com</email>
+          <administrador>true</administrador>
+          <senha>admin123</senha>
+          <participacoes>
+            <model.projetos.Participacao>
+              <codigo>1</codigo>
+              <ativo>true</ativo>
+              <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+              <dataInicio>2021-08-02</dataInicio>
+              <dataTermino>2021-12-12</dataTermino>
+              <aporteCusteioMensalReais>100.0</aporteCusteioMensalReais>
+              <qtdMesesCusteados>0</qtdMesesCusteados>
+              <qtdMesesPagos>0</qtdMesesPagos>
+              <coordenador>true</coordenador>
+              <membro reference="../../.."/>
+              <horariosPrevistos/>
+              <pontosTrabalhados/>
+            </model.projetos.Participacao>
+            <model.projetos.Participacao>
+              <codigo>1</codigo>
+              <ativo>true</ativo>
+              <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+              <dataInicio>2021-08-02</dataInicio>
+              <dataTermino>2021-12-12</dataTermino>
+              <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
+              <qtdMesesCusteados>0</qtdMesesCusteados>
+              <qtdMesesPagos>0</qtdMesesPagos>
+              <coordenador>true</coordenador>
+              <membro reference="../../.."/>
+              <horariosPrevistos/>
+              <pontosTrabalhados/>
+            </model.projetos.Participacao>
+          </participacoes>
+        </model.autenticacao.Membro>
+      </membros>
+      <participacoes>
+        <model.projetos.Participacao reference="../../membros/model.autenticacao.Membro/participacoes/model.projetos.Participacao[2]"/>
       </participacoes>
     </model.projetos.Projeto>
   </entry>

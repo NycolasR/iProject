@@ -17,10 +17,10 @@
     <model.projetos.Edital>
       <codigo>157329326</codigo>
       <nome>Edital 2</nome>
-      <ativo>true</ativo>
+      <ativo>false</ativo>
       <tipoItemProjeto>EDITAL</tipoItemProjeto>
-      <dataInicio>2021-07-01</dataInicio>
-      <dataTermino>2021-08-01</dataTermino>
+      <dataInicio>2021-04-01</dataInicio>
+      <dataTermino>2021-05-01</dataTermino>
       <projetos/>
       <grupos/>
     </model.projetos.Edital>

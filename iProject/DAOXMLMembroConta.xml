@@ -23,6 +23,34 @@
           <horariosPrevistos/>
           <pontosTrabalhados/>
         </model.projetos.Participacao>
+        <model.projetos.Participacao>
+          <codigo>1</codigo>
+          <ativo>true</ativo>
+          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+          <dataInicio>2021-08-02</dataInicio>
+          <dataTermino>2021-12-12</dataTermino>
+          <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
+          <qtdMesesCusteados>0</qtdMesesCusteados>
+          <qtdMesesPagos>0</qtdMesesPagos>
+          <coordenador>true</coordenador>
+          <membro reference="../../.."/>
+          <horariosPrevistos/>
+          <pontosTrabalhados/>
+        </model.projetos.Participacao>
+        <model.projetos.Participacao>
+          <codigo>2</codigo>
+          <ativo>true</ativo>
+          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+          <dataInicio>2021-08-02</dataInicio>
+          <dataTermino>2021-12-12</dataTermino>
+          <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
+          <qtdMesesCusteados>0</qtdMesesCusteados>
+          <qtdMesesPagos>0</qtdMesesPagos>
+          <coordenador>true</coordenador>
+          <membro reference="../../.."/>
+          <horariosPrevistos/>
+          <pontosTrabalhados/>
+        </model.projetos.Participacao>
       </participacoes>
     </model.autenticacao.Membro>
   </entry>

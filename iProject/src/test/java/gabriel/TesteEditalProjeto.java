@@ -3,21 +3,31 @@ package gabriel;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.Test;
-
-import util.ValidadoraDatas;
-
+import facades.casosdeuso.FacadeCasoDeUso4;
+import persistencia.DAOXMLEdital;
+import persistencia.DAOXMLProjetoParticipacao;
+/**
+ * 
+ * @author NPG
+ *
+ */
 public class TesteEditalProjeto {
 
+	public DAOXMLEdital daoxmlEdital = new DAOXMLEdital();
+	public DAOXMLProjetoParticipacao daoProjeto = new DAOXMLProjetoParticipacao();
+	public FacadeCasoDeUso4 facade4 = new FacadeCasoDeUso4();
+	
 	@Test
 	void testarProjetoEmEditalFinalizado() {
 		
 		//Projeto pode ser adicionado
-		assertDoesNotThrow(() -> ValidadoraDatas.criarData("01/12/2001"));
+		assertDoesNotThrow(() -> facade4.adicionarProjetoAUmEdital(
+				daoxmlEdital.consultarPorID(157285535l),daoProjeto.consultarPorID(158924708l)));
 
 		//Projeto não pode ser adicionado
-		Exception excecao1 = assertThrows(Exception.class, () -> {ValidadoraDatas.criarData("01/13/2001");});
-		assertEquals("Essa data não existe", excecao1.getMessage());
+		Exception excecao = assertThrows(Exception.class, () -> {facade4.adicionarProjetoAUmEdital(
+				daoxmlEdital.consultarPorID(157329326l),daoProjeto.consultarPorID(158935788l));});
+		assertEquals("Não é possível adicionar um projeto ou grupo (Edital fora de vigência)", excecao.getMessage());
 	}
 }

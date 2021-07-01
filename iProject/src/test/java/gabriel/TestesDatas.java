@@ -17,7 +17,7 @@ import util.ValidadoraDatas;
  * @author NPG
  *
  */
-public class TesteDatas {
+public class TestesDatas {
 
 	@Test()
 	void testarCriarData() {

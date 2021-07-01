@@ -133,10 +133,9 @@ public class ControllerTelaCadastroProjetos {
 		LocalDate dataTermino = ValidadoraDatas.criarData(dataTerminoParticipacao);
 		float aporteCusteioReaisMensal = Float.parseFloat(aporteCusteioDaParticipacao);
 		
-		if(projetos[posicaoProjeto].getAporteCusteioReais() < (aporteCusteioReaisMensal*ChronoUnit.MONTHS.between(dataInicio, dataTermino))) {
-			
-			throw new Exception("Mensalidade excede o valor de custeio");
-		}
+		
+		validarMensalidade(aporteCusteioReaisMensal, projetos[posicaoProjeto].getAporteCusteioReais(), 
+				(long) (aporteCusteioReaisMensal*ChronoUnit.MONTHS.between(dataInicio, dataTermino)));
 		
 		facadeCasoDeUso6.adicionarParticipante(matriculaDoMembro, matriculaCandidato, codigoProjeto, dataInicio, dataTermino, aporteCusteioReaisMensal);
 	}
@@ -283,9 +282,19 @@ public class ControllerTelaCadastroProjetos {
 		
 	}
 	
-	private void validarSeENumero(String valor) throws Exception {
+	public static void validarSeENumero(String valor) throws Exception {
 		if(!valor.matches("^[0-9]*[.]{0,1}[0-9]*$")) {
 			throw new Exception("Valores incorretos");
 		}
 	}
+	
+	public static void validarMensalidade(float ValorMensalidade, float valorCusteioTotal, long duracaoProjetoMeses) throws Exception{
+		
+		System.out.println(valorCusteioTotal < (ValorMensalidade*duracaoProjetoMeses));
+		
+		if(valorCusteioTotal < (ValorMensalidade*duracaoProjetoMeses)){
+			throw new Exception("Mensalidade excede o valor de custeio");
+		}
+	}
+	
 }
