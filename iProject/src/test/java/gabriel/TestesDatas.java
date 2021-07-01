@@ -19,7 +19,7 @@ import util.ValidadoraDatas;
  */
 public class TestesDatas {
 
-	@Test()
+	@Test
 	void testarCriarData() {
 					
 		//Data existe e é aceitável
