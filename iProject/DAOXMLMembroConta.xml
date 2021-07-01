@@ -7,7 +7,7 @@
 			<ativo>true</ativo>
 			<email>admin@admin.com</email>
 			<administrador>true</administrador>
-			<senha>admin</senha>
+			<senha>admin123</senha>
 			<participacoes />
 		</model.autenticacao.Membro>
 	</entry>

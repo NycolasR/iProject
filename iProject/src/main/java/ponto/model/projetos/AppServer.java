@@ -24,9 +24,6 @@ public class AppServer {
 			RegistradorPontoCentral remoto = new RegistradorPontoCentral();
 			registry.bind("RegistradorPontoCentral", remoto);
 			
-//			UnicastRemoteObject.unexportObject(registry, true);
-//			registry.unbind("RegistradorPontoCentral");
-			
 		} catch(Exception e1) {
 			
 			try {
