@@ -1,6 +1,7 @@
 package controller.projetos;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import facades.casosdeuso.FacadeCasoDeUso4;
 import facades.casosdeuso.FacadeCasoDeUso5;
@@ -125,14 +126,17 @@ public class ControllerTelaCadastroProjetos {
 		}
 		
 		validarSeENumero(aporteCusteioDaParticipacao);
-		
+				
 		long matriculaCandidato = membros[posicaoMembro].getMatricula();
 		long codigoProjeto = projetos[posicaoProjeto].getCodigo();
 		LocalDate dataInicio = ValidadoraDatas.criarData(dataInicioParticipacao);
 		LocalDate dataTermino = ValidadoraDatas.criarData(dataTerminoParticipacao);
 		float aporteCusteioReaisMensal = Float.parseFloat(aporteCusteioDaParticipacao);
 		
-		
+		if(projetos[posicaoProjeto].getAporteCusteioReais() < (aporteCusteioReaisMensal*ChronoUnit.MONTHS.between(dataInicio, dataTermino))) {
+			
+			throw new Exception("Mensalidade excede o valor de custeio");
+		}
 		
 		facadeCasoDeUso6.adicionarParticipante(matriculaDoMembro, matriculaCandidato, codigoProjeto, dataInicio, dataTermino, aporteCusteioReaisMensal);
 	}

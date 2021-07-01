@@ -66,6 +66,10 @@ public class ValidadoraDatas {
 		
 		String[] data = dataString.split("/");
 		
+		if(data.length != 3) {
+			throw new Exception("Isso não é uma data");
+		}
+		
 		if(data[0] != null && data[1] != null && data[2] != null) {
 			
 			try {
