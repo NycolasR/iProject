@@ -1,94 +1,13 @@
 <map>
   <entry>
-    <long>222222222</long>
-    <model.autenticacao.Membro>
-      <matricula>222222222</matricula>
-      <ativo>true</ativo>
-      <email>user2@user.com</email>
-      <administrador>false</administrador>
-      <senha>senha2</senha>
-      <participacoes>
-        <model.projetos.Participacao>
-          <codigo>1</codigo>
-          <ativo>true</ativo>
-          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
-          <dataInicio>2021-08-02</dataInicio>
-          <dataTermino>2021-12-12</dataTermino>
-          <aporteCusteioMensalReais>20.0</aporteCusteioMensalReais>
-          <qtdMesesCusteados>0</qtdMesesCusteados>
-          <qtdMesesPagos>0</qtdMesesPagos>
-          <coordenador>false</coordenador>
-          <membro reference="../../.."/>
-          <horariosPrevistos/>
-          <pontosTrabalhados/>
-        </model.projetos.Participacao>
-      </participacoes>
-    </model.autenticacao.Membro>
-  </entry>
-  <entry>
-    <long>111111111</long>
-    <model.autenticacao.Membro>
-      <matricula>111111111</matricula>
-      <ativo>true</ativo>
-      <email>user1@user.com</email>
-      <administrador>false</administrador>
-      <senha>senha1</senha>
-      <participacoes/>
-    </model.autenticacao.Membro>
-  </entry>
-  <entry>
     <long>123456789</long>
     <model.autenticacao.Membro>
       <matricula>123456789</matricula>
-      <nome>admin</nome>
       <ativo>true</ativo>
       <email>admin@admin.com</email>
       <administrador>true</administrador>
       <senha>admin123</senha>
-      <participacoes>
-        <model.projetos.Participacao>
-          <codigo>1</codigo>
-          <ativo>true</ativo>
-          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
-          <dataInicio>2021-08-02</dataInicio>
-          <dataTermino>2021-12-12</dataTermino>
-          <aporteCusteioMensalReais>100.0</aporteCusteioMensalReais>
-          <qtdMesesCusteados>0</qtdMesesCusteados>
-          <qtdMesesPagos>0</qtdMesesPagos>
-          <coordenador>true</coordenador>
-          <membro reference="../../.."/>
-          <horariosPrevistos/>
-          <pontosTrabalhados/>
-        </model.projetos.Participacao>
-        <model.projetos.Participacao>
-          <codigo>1</codigo>
-          <ativo>true</ativo>
-          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
-          <dataInicio>2021-08-02</dataInicio>
-          <dataTermino>2021-12-12</dataTermino>
-          <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
-          <qtdMesesCusteados>0</qtdMesesCusteados>
-          <qtdMesesPagos>0</qtdMesesPagos>
-          <coordenador>true</coordenador>
-          <membro reference="../../.."/>
-          <horariosPrevistos/>
-          <pontosTrabalhados/>
-        </model.projetos.Participacao>
-        <model.projetos.Participacao>
-          <codigo>2</codigo>
-          <ativo>true</ativo>
-          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
-          <dataInicio>2021-08-02</dataInicio>
-          <dataTermino>2021-12-12</dataTermino>
-          <aporteCusteioMensalReais>200.0</aporteCusteioMensalReais>
-          <qtdMesesCusteados>0</qtdMesesCusteados>
-          <qtdMesesPagos>0</qtdMesesPagos>
-          <coordenador>true</coordenador>
-          <membro reference="../../.."/>
-          <horariosPrevistos/>
-          <pontosTrabalhados/>
-        </model.projetos.Participacao>
-      </participacoes>
+      <participacoes/>
     </model.autenticacao.Membro>
   </entry>
 </map>

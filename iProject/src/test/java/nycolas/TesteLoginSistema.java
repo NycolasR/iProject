@@ -13,7 +13,6 @@ class TesteLoginSistema {
 	
 	@Test
 	void testarLogin() {
-		
 		// Senhas incorretas
 		assertEquals(false, facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin12", TipoProvedorAutenticacao.INTERNO));
 		assertEquals(false, facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin1234", TipoProvedorAutenticacao.INTERNO));
@@ -25,5 +24,4 @@ class TesteLoginSistema {
 		assertEquals(true, facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO));
 		
 	}
-
 }

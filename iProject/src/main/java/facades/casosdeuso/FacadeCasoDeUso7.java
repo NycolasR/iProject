@@ -38,12 +38,12 @@ public class FacadeCasoDeUso7 {
 	public boolean tornarOuDesabilitarMembroAdministrador(long matriculaMembroAdministrador, long matriculaMembroASerMudado, boolean isAdministrador) throws Exception {
 
 		try {
-			Membro membroAdministrador = daoXmlMembroConta.consultarPorID(matriculaMembroAdministrador);
+			Membro membroAdministrador = daoXmlMembroConta.consultarPorMatricula(matriculaMembroAdministrador);
 
 			if(matriculaMembroAdministrador != 0 && matriculaMembroASerMudado != 0 && membroAdministrador.isAdministrador() && 
 					matriculaMembroAdministrador != matriculaMembroASerMudado) {
 
-				Membro membroASerMudado = daoXmlMembroConta.consultarPorID(matriculaMembroASerMudado);
+				Membro membroASerMudado = daoXmlMembroConta.consultarPorMatricula(matriculaMembroASerMudado);
 
 				membroASerMudado.setAdministrador(isAdministrador);
 				

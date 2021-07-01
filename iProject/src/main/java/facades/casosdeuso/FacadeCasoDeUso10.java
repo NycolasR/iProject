@@ -49,13 +49,13 @@ public class FacadeCasoDeUso10 {
 			DAOXMLMembroConta daoxmlMembroConta = new DAOXMLMembroConta();
 			DAOXMLProjetoParticipacao daoxmlProjetoParticipacao = new DAOXMLProjetoParticipacao();
 			
-			Membro membroCoordenador = daoxmlMembroConta.consultarPorID(matriculaDoCoordenador);
+			Membro membroCoordenador = daoxmlMembroConta.consultarPorMatricula(matriculaDoCoordenador);
 			
 			Projeto projeto = daoxmlProjetoParticipacao.consultarPorID(codProjeto);
 			
 			if(projeto.getCoordenador().getMatricula() == membroCoordenador.getMatricula()) {
 				
-				Membro membro = ValidadoraMembros.validarExistenciaDeMembro(projeto.getMembros(), daoxmlMembroConta.consultarPorID(matriculaDoMembro));
+				Membro membro = ValidadoraMembros.validarExistenciaDeMembro(projeto.getMembros(), daoxmlMembroConta.consultarPorMatricula(matriculaDoMembro));
 				
 				if(membro == null) {
 					

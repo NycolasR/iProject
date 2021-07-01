@@ -43,7 +43,7 @@ public class FacadeCasoDeUso4 {
 		
 		Membro membro = null;
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matriculaMembro);
+			membro = daoxmlMembroConta.consultarPorMatricula(matriculaMembro);
 			// Vê se o membro tem permissão para adicionar um Edital ao sistema
 			if(membro.isAdministrador()) {
 				// Instancia de Edital
@@ -72,7 +72,7 @@ public class FacadeCasoDeUso4 {
 		Membro membro = null;
 
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matriculaMembro);
+			membro = daoxmlMembroConta.consultarPorMatricula(matriculaMembro);
 
 			// Ve se o membro recuperado tem permissao para remover um Edital do sistema
 			if(membro.isAdministrador()) {
@@ -101,7 +101,7 @@ public class FacadeCasoDeUso4 {
 	public boolean atualizarEdital(long matriculaMembro, long codigoEdital,  String nomeEdital, LocalDate dataInicio, LocalDate dataTermino) throws Exception{
 		Membro membro = null;
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matriculaMembro);
+			membro = daoxmlMembroConta.consultarPorMatricula(matriculaMembro);
 			
 			// Vê se o membro tem permissão para remover um Edital do sistema
 			if(membro.isAdministrador()) {

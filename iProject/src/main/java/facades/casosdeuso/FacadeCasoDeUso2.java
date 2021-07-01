@@ -1,10 +1,6 @@
 package facades.casosdeuso;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.logging.Logger;
-
-import org.junit.jupiter.api.Test;
 
 import model.autenticacao.Conta;
 import model.autenticacao.ContaAutenticacaoProvedorEmailSMTP;
@@ -79,14 +75,15 @@ public class FacadeCasoDeUso2 {
 			membro.setContaAbstracao(contaAbstracao);
 
 			// Tentará fazer a autenticacao
-			if(!contaAbstracao.autenticar(email, senha, false))
-				return false;
+			if(!contaAbstracao.autenticar(email, senha, false)) {
+				myLogger.warning(this.getClass() + " Dados de login invalidos");
+				return false;				
+			}
 
 			registradorSessaoLogin.registrarOnline(membro);
 			
 			myLogger.info(this.getClass() +" "+ email + " fez login com sucesso!");
 			
-			myLogger.warning(this.getClass() + " Dados de login invalidos");
 			
 			return true;
 

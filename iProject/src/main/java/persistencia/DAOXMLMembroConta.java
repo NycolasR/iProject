@@ -122,8 +122,7 @@ public class DAOXMLMembroConta {
 			gravador.close();
 			
 		} catch ( IOException e) {
-			System.out.println((e.getMessage ()));
-			
+			e.printStackTrace();
 		}
 		
 	}
@@ -292,7 +291,7 @@ public class DAOXMLMembroConta {
 
 	// OMÉTODO CONSULTARPORID() RETORNA UM OBJETO DO HASHMAP COM A CHAVE INFOMADA COMO PARAMETRO DE ENTRADA.
 	// CASO NENHUM OBJETO SEJA ENCONTRADO COM ESSA CHAVE, UMA EXCEPTION SERÁ LANÇADA.
-	public Membro consultarPorID(long ID) throws Exception {
+	public Membro consultarPorMatricula(long ID) throws Exception {
 		for(long key: persistidos.keySet()) {
 			if(ID == key) {
 				return persistidos.get(key);
