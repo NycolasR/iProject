@@ -52,7 +52,7 @@ public class FacadeCasoDeUso5 {
 		
 		Membro membro = null;
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matriculaMembro);
+			membro = daoxmlMembroConta.consultarPorMatricula(matriculaMembro);
 			projeto.adicionarMembro(membro, dataInicio, dataTermino, true, aporteCusteioReaisMensal);
 			
 			if(daoxmlProjetoParticipacao.criar(projeto)) {

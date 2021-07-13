@@ -66,7 +66,7 @@ public class FacadeCasoDeUso6 {
 			membroCoordenador = projeto.getCoordenador();
 
 			// Resgada o membro candidato (consequentemente, confirma se o membroCandidato possui um registro no sistema)
-			membroCandidato = daoxmlMembroConta.consultarPorID(matriculaCandidato);
+			membroCandidato = daoxmlMembroConta.consultarPorMatricula(matriculaCandidato);
 
 			// Verifica se o coordenador passado como parametro de entrada e mesmo coordenador
 			if(membroCoordenador.getMatricula() == matriculaCoordenador) {
@@ -106,7 +106,7 @@ public class FacadeCasoDeUso6 {
 			membroCoordenador = projeto.getCoordenador();
 
 			// Resgada o membro candidato (consequentemente, confirma se o membroCandidato possui um registro no sistema)
-			membroASerRemovido = daoxmlMembroConta.consultarPorID(matriculaCandidatoRemovivel);
+			membroASerRemovido = daoxmlMembroConta.consultarPorMatricula(matriculaCandidatoRemovivel);
 
 			// Verifica se o coordenador passado como parametro de entrada e mesmo coordenador
 			if(membroCoordenador.getMatricula() == matriculaCoordenador) {

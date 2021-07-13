@@ -43,7 +43,7 @@ public class TesteEditalProjetoBaterPonto {
 	@Test
 	void testarBaterPonto() {
 		try {
-		registrador.registrarOnline(daoxmlMembro.consultarPorID(222222222l));
+		registrador.registrarOnline(daoxmlMembro.consultarPorMatricula(222222222l));
 		}catch (Exception e) {}
 		
 		//É possível o user 2 bater ponto no projeto 1 já que ele está cadastrado no projeto

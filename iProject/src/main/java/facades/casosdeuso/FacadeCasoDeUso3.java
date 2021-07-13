@@ -42,7 +42,7 @@ public class FacadeCasoDeUso3 {
 		Membro membro = null;
 		
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matricula);
+			membro = daoxmlMembroConta.consultarPorMatricula(matricula);
 			// Vê se o membro tem permissão para adicionar um Edital ao sistema.
 			if(membro.isAdministrador()) {
 				
@@ -70,7 +70,7 @@ public class FacadeCasoDeUso3 {
 		Membro membro = null;
 		
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matricula);
+			membro = daoxmlMembroConta.consultarPorMatricula(matricula);
 			// Vê se o membro tem permissão para adicionar um Edital ao sistema
 			if(membro.isAdministrador()) {
 				// Recupera edital para ver se ainda possue projetos vinculados.
@@ -102,7 +102,7 @@ public class FacadeCasoDeUso3 {
 		Membro membro = null;
 		
 		try {
-			membro = daoxmlMembroConta.consultarPorID(matricula);
+			membro = daoxmlMembroConta.consultarPorMatricula(matricula);
 			// Vê se o membro tem permissão para adicionar um Edital ao sistema
 			if(membro.isAdministrador()) {
 				Grupo grupo = null;
