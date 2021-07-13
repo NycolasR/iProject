@@ -1,11 +1,7 @@
 package facades.casosdeuso;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-
 import java.util.Set;
 import java.util.logging.Logger;
-
-import org.junit.jupiter.api.Test;
 
 import model.autenticacao.Membro;
 import persistencia.DAOXMLMembroConta;
@@ -29,19 +25,6 @@ public class FacadeCasoDeUso1 {
 	//A sobrescrita do construtor vai criar as instâncias dos atributos dessa fachada
 	public FacadeCasoDeUso1() {
 		daoxmlMembroConta = new DAOXMLMembroConta();
-	}
-	
-	public static void main(String[] args) {
-		DAOXMLMembroConta daoxmlMembroConta = new DAOXMLMembroConta();
-		FacadeCasoDeUso1 facadeCasoDeUso1 = new FacadeCasoDeUso1();
-		
-		facadeCasoDeUso1.cadastrarConta("admin", 123456789l, "admin@admin.com", "admin123");
-			
-		try {
-			System.out.println(daoxmlMembroConta.consultarPorMatricula(123456789l));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public boolean cadastrarConta(

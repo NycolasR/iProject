@@ -17,7 +17,7 @@ public class MyLogger {
 	private static final Logger LOGGER = Logger.getLogger( MyLogger.class.getName() );
 
 	public static synchronized Logger getInstance() {
-		setLogger();
+//		setLogger(); TODO descomentar se for testar Logger
 		return LOGGER;
 	}
 	
