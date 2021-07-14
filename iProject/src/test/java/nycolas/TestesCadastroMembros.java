@@ -3,6 +3,7 @@ package nycolas;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import facades.casosdeuso.FacadeCasoDeUso1;
 import model.autenticacao.Membro;
@@ -11,9 +12,11 @@ class TestesCadastroMembros {
 	
 	private FacadeCasoDeUso1 facadeCasoDeUso1 = new FacadeCasoDeUso1();
 
+	@Mock
+	Membro membro;
+	
 	@Test
 	void testarMatriculasMembros() {
-		Membro membro = new Membro();
 		
 		assertNotEquals(true, facadeCasoDeUso1.setarMatricula(membro, 12345678l));
 		assertEquals(true, facadeCasoDeUso1.setarMatricula(membro, 123456789l)); // Formato aceito
@@ -22,7 +25,6 @@ class TestesCadastroMembros {
 	
 	@Test
 	void testarNomesMembros() {		
-		Membro membro = new Membro();
 		
 		assertNotEquals(true, facadeCasoDeUso1.setarNome(membro, "José G da Silv")); // 14 caracteres -> inaceitável
 		assertEquals(true, facadeCasoDeUso1.setarNome(membro, "Nycolas R Alves")); // 15 caracteres ->  aceitável
@@ -33,7 +35,6 @@ class TestesCadastroMembros {
 	
 	@Test
 	void testarEmailsMembros() {
-		Membro membro = new Membro();
 		
 		assertEquals(true, facadeCasoDeUso1.setarEmail(membro, "nycolas.ramon@academico.ifpb.edu.br")); // 1 @ e nome de domínio -> aceitável
 		
@@ -47,7 +48,6 @@ class TestesCadastroMembros {
 	}
 	
 	void testarSenhasMembros() {
-		Membro membro = new Membro();
 		
 		assertNotEquals(true, facadeCasoDeUso1.setarSenha(membro, "abcde")); // 5 caracteres -> inaceitável
 		assertEquals(true, facadeCasoDeUso1.setarSenha(membro, "abcdef")); // 6 caracteres ->  aceitável
