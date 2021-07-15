@@ -7,7 +7,22 @@
       <email>admin@admin.com</email>
       <administrador>true</administrador>
       <senha>admin123</senha>
-      <participacoes/>
+      <participacoes>
+        <model.projetos.Participacao>
+          <codigo>1</codigo>
+          <ativo>true</ativo>
+          <tipoItemProjeto>PARTICIPACAO</tipoItemProjeto>
+          <dataInicio>2021-07-15</dataInicio>
+          <dataTermino>2022-02-28</dataTermino>
+          <aporteCusteioMensalReais>100.0</aporteCusteioMensalReais>
+          <qtdMesesCusteados>0</qtdMesesCusteados>
+          <qtdMesesPagos>0</qtdMesesPagos>
+          <coordenador>true</coordenador>
+          <membro reference="../../.."/>
+          <horariosPrevistos/>
+          <pontosTrabalhados/>
+        </model.projetos.Participacao>
+      </participacoes>
     </model.autenticacao.Membro>
   </entry>
 </map>

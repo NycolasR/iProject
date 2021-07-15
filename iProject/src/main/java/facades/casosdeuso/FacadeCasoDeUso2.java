@@ -37,13 +37,6 @@ public class FacadeCasoDeUso2 {
 		registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 	}
 	
-	public static void main(String[] args) {
-		FacadeCasoDeUso2 facadeCasoDeUso2 = new FacadeCasoDeUso2();
-		System.out.println(facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin12", TipoProvedorAutenticacao.INTERNO));
-		System.out.println(facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO));
-		
-	}
-
 	public boolean fazerLogin(String email,
 			String senha,
 			TipoProvedorAutenticacao tipo)  {
