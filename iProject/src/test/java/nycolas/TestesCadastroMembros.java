@@ -10,10 +10,11 @@ import model.autenticacao.Membro;
 
 class TestesCadastroMembros {
 	
-	private FacadeCasoDeUso1 facadeCasoDeUso1 = new FacadeCasoDeUso1();
-
 	@Mock
-	Membro membro;
+	private FacadeCasoDeUso1 facadeCasoDeUso1;
+	
+	@Mock
+	private Membro membro;
 	
 	@Test
 	void testarMatriculasMembros() {

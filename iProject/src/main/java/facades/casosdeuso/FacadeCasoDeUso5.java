@@ -38,8 +38,28 @@ public class FacadeCasoDeUso5 {
 		daoxmlMembroConta = new DAOXMLMembroConta();
 	}
 	
+	public static void main(String[] args) {
+		FacadeCasoDeUso5 facade = new FacadeCasoDeUso5();
+		
+		try {
+			System.out.println(facade.criarProjeto(123456789l, 
+					1l, "Projeto 1", 
+					1000, 1500, 
+					LocalDate.now(), LocalDate.of(2022, 2, 28), 100));
+			
+			
+			System.out.println(facade.criarProjeto(123456789l,
+					2l, "Projeto 2", 
+					2000, 2500, 
+					LocalDate.now(), LocalDate.of(2022, 2, 28), 200));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	// Método testado
-	public void criarProjeto(
+	public Projeto criarProjeto(
 			long matriculaMembro,
 			long codigoProjeto,
 			String nomeProjeto,
@@ -49,21 +69,24 @@ public class FacadeCasoDeUso5 {
 			LocalDate dataTermino,
 			float aporteCusteioReaisMensal) throws Exception{
 		Projeto projeto = instanciarProjeto(nomeProjeto, aporteCusteioReais, aporteCapitalReais, codigoProjeto);
-		
+
 		Membro membro = null;
 		try {
 			membro = daoxmlMembroConta.consultarPorMatricula(matriculaMembro);
 			projeto.adicionarMembro(membro, dataInicio, dataTermino, true, aporteCusteioReaisMensal);
 			
 			if(daoxmlProjetoParticipacao.criar(projeto)) {
-				logger.info("Projeto: " + projeto.getNome() + " criado com sucesso.");
+//				logger.info("Projeto: " + projeto.getNome() + " criado com sucesso.");
 				daoxmlMembroConta.atualizar(matriculaMembro, membro);
+				return projeto;
 			}
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
 			e.printStackTrace();
 			throw new Exception(e.getMessage());
 		}
+		
+		return null;
 	}
 	
 	// Método testado

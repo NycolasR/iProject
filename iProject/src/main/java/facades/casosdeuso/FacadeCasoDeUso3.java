@@ -137,11 +137,6 @@ public class FacadeCasoDeUso3 {
 		return false;
 	}
 	
-	/*
-	 * TODO FEITO
-	 * Utilitario privado?
-	 * TODO FEITO [UML] Alterar encapsulamento e nome
-	 */
 	private void setarAtributos(Grupo grupo , String nome, LocalDate dataCriacao, String linkCNPq , long codigo) {
 		grupo.setCodigo(codigo);
 		grupo.setNome(nome);

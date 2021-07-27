@@ -111,8 +111,6 @@ public class DAOXMLMembroConta {
 		
 		String xmlPersistidos = getXstream().toXML(persistidos);
 		getXstream().alias("map", java.util.Map.class);
-		//System.out.println(xmlPersistidos);
-		
 		
 		try {
 			
