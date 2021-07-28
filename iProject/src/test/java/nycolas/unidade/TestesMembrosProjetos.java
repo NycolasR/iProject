@@ -1,4 +1,4 @@
-package nycolas;
+package nycolas.unidade;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -119,33 +119,35 @@ class TestesMembrosProjetos {
 	private FacadeCasoDeUso1 facade1 = mock(FacadeCasoDeUso1.class);
 	private Membro membro = new Membro();
 	
-	@Test
-	void testarEmailsMembros() {
-		
-		when(facade1.setarEmail(membro, "nycolas.ramon@academico.ifpb.edu.br")).thenReturn(true); // 1 @ e nome de domínio -> aceitável
-		when(facade1.setarEmail(membro, "nycolas.ramon@academico@ifpb.edu.br")).thenReturn(false); // 2 @ e nome de domínio -> inaceitável
-		when(facade1.setarEmail(membro, "nycolas.ramon.academico.ifpb.edu.br")).thenReturn(false); // 0 @ e nome de domínio -> inaceitável
-		
-		assertTrue(facade1.setarEmail(membro, "nycolas.ramon@academico.ifpb.edu.br"));
-		assertFalse(facade1.setarEmail(membro, "nycolas.ramon@academico@ifpb.edu.br")); 
-		assertFalse(facade1.setarEmail(membro, "nycolas.ramon.academico.ifpb.edu.br")); 
-		
-	}
-	
-	@Test
-	void testarSenhasMembros() {
-		
-		when(facade1.setarSenha(membro, "abcde")).thenReturn(false);
-		when(facade1.setarSenha(membro, "abcdef")).thenReturn(true);
-		
-		when(facade1.setarSenha(membro, "hgfedbca")).thenReturn(true);
-		when(facade1.setarSenha(membro, "ihgfedbca")).thenReturn(false);
-		
-		assertFalse(facade1.setarSenha(membro, "abcde"));     // 5 caracteres ->  inaceitável
-		assertTrue (facade1.setarSenha(membro, "abcdef"));    // 6 caracteres ->  aceitável
-		assertTrue (facade1.setarSenha(membro, "hgfedbca"));  // 8 caracteres ->  aceitável
-		assertFalse(facade1.setarSenha(membro, "ihgfedbca")); // 9 caracteres ->  inaceitável
-	}
+//	@Test
+//	@Disabled
+//	void testarEmailsMembros() {
+//		
+//		when(facade1.setarEmail(membro, "nycolas.ramon@academico.ifpb.edu.br")).thenReturn(true); // 1 @ e nome de domínio -> aceitável
+//		when(facade1.setarEmail(membro, "nycolas.ramon@academico@ifpb.edu.br")).thenReturn(false); // 2 @ e nome de domínio -> inaceitável
+//		when(facade1.setarEmail(membro, "nycolas.ramon.academico.ifpb.edu.br")).thenReturn(false); // 0 @ e nome de domínio -> inaceitável
+//		
+//		assertTrue(facade1.setarEmail(membro, "nycolas.ramon@academico.ifpb.edu.br"));
+//		assertFalse(facade1.setarEmail(membro, "nycolas.ramon@academico@ifpb.edu.br")); 
+//		assertFalse(facade1.setarEmail(membro, "nycolas.ramon.academico.ifpb.edu.br")); 
+//		
+//	}
+//	
+//	@Test
+//	@Disabled
+//	void testarSenhasMembros() {
+//		
+//		when(facade1.setarSenha(membro, "abcde")).thenReturn(false);
+//		when(facade1.setarSenha(membro, "abcdef")).thenReturn(true);
+//		
+//		when(facade1.setarSenha(membro, "hgfedbca")).thenReturn(true);
+//		when(facade1.setarSenha(membro, "ihgfedbca")).thenReturn(false);
+//		
+//		assertFalse(facade1.setarSenha(membro, "abcde"));     // 5 caracteres ->  inaceitável
+//		assertTrue (facade1.setarSenha(membro, "abcdef"));    // 6 caracteres ->  aceitável
+//		assertTrue (facade1.setarSenha(membro, "hgfedbca"));  // 8 caracteres ->  aceitável
+//		assertFalse(facade1.setarSenha(membro, "ihgfedbca")); // 9 caracteres ->  inaceitável
+//	}
 }
 
 

@@ -1,4 +1,4 @@
-package nycolas;
+package nycolas.unidade;
 
 import static org.junit.jupiter.api.Assertions.*;
 

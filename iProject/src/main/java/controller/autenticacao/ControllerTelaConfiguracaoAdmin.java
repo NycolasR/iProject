@@ -1,7 +1,5 @@
 package controller.autenticacao;
 
-import javax.swing.JOptionPane;
-
 import facades.casosdeuso.FacadeCasoDeUso1;
 import facades.casosdeuso.FacadeCasoDeUso7;
 import model.autenticacao.Membro;
@@ -30,7 +28,8 @@ public class ControllerTelaConfiguracaoAdmin {
 			facadeCasoDeUso7.tornarOuDesabilitarMembroAdministrador(matriculaMembroAdministrador, matriculaAMudar, isAdministrador);
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
+//			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
 		}
 	}
 	

@@ -37,6 +37,7 @@ public class FacadeCasoDeUso1 {
 			// Verifica se o email é valido.
 			if(ValidadoraFormatoEmailLogin.validarLoginComum(login)) {
 				Membro membro = new Membro();
+				
 				if(setarAtributos(membro, matricula, nome, login, senha)) {					
 					membro.ativar();
 					
@@ -86,7 +87,7 @@ public class FacadeCasoDeUso1 {
 	
 		
 	// Método que seta os valores dos atributos de um membro.
-	private boolean setarAtributos(Membro membro, long matricula, String nome, String email, String senha) {
+	private boolean setarAtributos(Membro membro, long matricula, String nome, String email, String senha) throws Exception {
 		setarMatricula(membro, matricula);
 		setarNome(membro, nome);
 		setarEmail(membro, email);
@@ -95,40 +96,36 @@ public class FacadeCasoDeUso1 {
 		return true;
 	}
 	
-	public boolean setarMatricula(Membro membro, long matricula) {
+	public void setarMatricula(Membro membro, long matricula) throws Exception {
 		// Matrículas de membros deve ser um valor numérico de 9 dígitos
 		if(Long.toString(matricula).length() != 9)
-			return false;
+			throw new Exception("[ERRO] Matrículas de membros deve ser um valor numérico de 9 dígitos");
 		
 		membro.setMatricula(matricula);
-		return true;
 	}
 
-	public boolean setarNome(Membro membro, String nome) {
+	public void setarNome(Membro membro, String nome) throws Exception {
 		// Nomes devem ter entre 15 e 60 caracteres
 		if(nome.length() < 15 || nome.length() > 60)
-			return false;
+			throw new Exception("[ERRO] Nomes devem ter entre 15 e 60 caracteres");
 		
 		membro.setNome(nome);
-		return true;
 	}
 
-	public boolean setarEmail(Membro membro, String email) {
+	public void setarEmail(Membro membro, String email) throws Exception {
 		// E-mails devem obedecer o formato convencional
 		if(!ValidadoraFormatoEmailLogin.validarLoginComum(email))
-			return false;
+			throw new Exception("[ERRO] E-mails devem obedecer o formato convencional");
 		
 		membro.setEmail(email);
-		return true;
 	}
 
-	public boolean setarSenha(Membro membro, String senha) {
+	public void setarSenha(Membro membro, String senha) throws Exception {
 		// Senhas devem ter entre 6 e 8 caracteres
 		if(senha.length() < 6 || senha.length() > 8)
-			return false;
+			throw new Exception("[ERRO] Senhas devem ter entre 6 e 8 caracteres");
 		
 		membro.setSenha(senha);
-		return true;
 	}
 	
 	

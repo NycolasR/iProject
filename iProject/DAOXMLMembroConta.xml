@@ -1,0 +1,14 @@
+<map>
+  <entry>
+    <long>123456789</long>
+    <model.autenticacao.Membro>
+      <matricula>123456789</matricula>
+      <nome>Administrador do iProject</nome>
+      <ativo>true</ativo>
+      <email>administracao@admin.com</email>
+      <administrador>true</administrador>
+      <senha>P@ssw0rd</senha>
+      <participacoes/>
+    </model.autenticacao.Membro>
+  </entry>
+</map>

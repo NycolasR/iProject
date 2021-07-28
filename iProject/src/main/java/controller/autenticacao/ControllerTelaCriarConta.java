@@ -14,17 +14,17 @@ public class ControllerTelaCriarConta {
 
 	private static FacadeCasoDeUso1 facadeCasoDeUso1 = new FacadeCasoDeUso1();
 	
-	public void cadastrarConta(String nome,long matricula,String login,String senha) throws Exception {
+	public void cadastrarConta(String nome, long matricula, String login, String senha) throws Exception {
 		
 		if(!facadeCasoDeUso1.cadastrarConta(nome, matricula, login, senha)) {
-			throw new Exception("Nao foi possivel cadastrar conta");
+			throw new Exception("[ERRO] Não foi possivel cadastrar a conta");
 		}
 	}
 	
 	public void atualizarConta(long matricula , String nome, String login, String senha) throws Exception {
 		
 		if(!facadeCasoDeUso1.atualizar(matricula, nome, login, senha)) {
-			throw new Exception("Nao foi possivel atualizar conta");
+			throw new Exception("[ERRO] Não foi possivel atualizar a conta");
 		}
 	}
 	
