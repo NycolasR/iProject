@@ -39,7 +39,7 @@ public class FacadeCasoDeUso2 {
 	
 	public boolean fazerLogin(String email,
 			String senha,
-			TipoProvedorAutenticacao tipo)  {
+			TipoProvedorAutenticacao tipo) throws Exception {
 
 		// Resgatando o usuario dos usuarios registrados
 		Membro membro;
@@ -70,7 +70,7 @@ public class FacadeCasoDeUso2 {
 			// Tentará fazer a autenticacao
 			if(!contaAbstracao.autenticar(email, senha, false)) {
 				myLogger.warning(this.getClass() + " Dados de login invalidos");
-				return false;				
+				throw new Exception("[ERRO] Não foi possível fazer login: dados de login inválidos.");
 			}
 
 			registradorSessaoLogin.registrarOnline(membro);
@@ -82,7 +82,7 @@ public class FacadeCasoDeUso2 {
 
 		} catch (Exception e) {
 			myLogger.severe(e.toString());
-			return false;
+			throw new Exception("[ERRO] Não foi possível fazer login.");
 		}
 
 	}

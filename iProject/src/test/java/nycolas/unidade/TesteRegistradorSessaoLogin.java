@@ -15,7 +15,11 @@ class TesteRegistradorSessaoLogin {
 		RegistradorSessaoLogin registrador = RegistradorSessaoLogin.getInstance();
 		FacadeCasoDeUso2 facadeCasoDeUso2 = new FacadeCasoDeUso2();
 		
-		facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO);
+		try {
+			facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		assertEquals(true, registrador.isOnline("admin@admin.com"));
 	}

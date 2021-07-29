@@ -20,7 +20,7 @@ public class ControllerTelaAutenticacao {
 	
 	private boolean isAdmin;
 	
-	public boolean fazerLogin(String email,String senha,boolean tipoProvedorInterno) throws Exception {
+	public boolean fazerLogin(String email, String senha, boolean tipoProvedorInterno) throws Exception {
 		
 		TipoProvedorAutenticacao tipoProvedor = TipoProvedorAutenticacao.INTERNO;
 		

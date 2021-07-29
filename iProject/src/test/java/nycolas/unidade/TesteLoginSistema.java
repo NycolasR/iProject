@@ -14,14 +14,22 @@ class TesteLoginSistema {
 	@Test
 	void testarLogin() {
 		// Senhas incorretas
-		assertEquals(false, facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin12", TipoProvedorAutenticacao.INTERNO));
-		assertEquals(false, facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin1234", TipoProvedorAutenticacao.INTERNO));
+		assertThrows(Exception.class, () -> {
+			facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin12", TipoProvedorAutenticacao.INTERNO);
+		});
+		
+		assertThrows(Exception.class, () -> {
+			facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin1234", TipoProvedorAutenticacao.INTERNO);
+		});
 		
 		// E-mail inexistente
-		assertEquals(false, facadeCasoDeUso2.fazerLogin("user@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO));
+		assertThrows(Exception.class, () -> {
+			facadeCasoDeUso2.fazerLogin("user@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO);
+		});
 		
 		// E-mail e senha corretos
-		assertEquals(true, facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO));
+		assertDoesNotThrow(() -> 
+			facadeCasoDeUso2.fazerLogin("admin@admin.com", "admin123", TipoProvedorAutenticacao.INTERNO));
 		
 	}
 }

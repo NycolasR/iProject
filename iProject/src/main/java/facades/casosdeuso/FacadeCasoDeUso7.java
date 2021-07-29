@@ -47,7 +47,8 @@ public class FacadeCasoDeUso7 {
 
 				membroASerMudado.setAdministrador(isAdministrador);
 				
-				logger.info("Membro " + matriculaMembroASerMudado + ": tornou-se administrador");
+				String sttsAtual = isAdministrador ? ": tornou-se administrador" : ": tornou-se membro comum";
+				logger.info("Membro " + matriculaMembroASerMudado + sttsAtual);
 				
 				daoXmlMembroConta.atualizar(membroASerMudado.getMatricula(), membroASerMudado);
 				

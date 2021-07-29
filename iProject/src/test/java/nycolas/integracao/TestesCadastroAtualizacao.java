@@ -2,22 +2,15 @@ package nycolas.integracao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import controller.autenticacao.ControllerTelaAutenticacao;
 import controller.autenticacao.ControllerTelaCriarConta;
-import model.autenticacao.Membro;
-import persistencia.DAOXMLMembroConta;
 
-class TestesCadastroLogin {
+class TestesCadastroAtualizacao {
 	
-	private ControllerTelaAutenticacao controllerTelaAutenticacao = new ControllerTelaAutenticacao();
 	private ControllerTelaCriarConta controllerTelaCriarConta = new ControllerTelaCriarConta();
-	private DAOXMLMembroConta daoMembro = new DAOXMLMembroConta();
 
 	@Test
-	@Disabled
 	void testCriarConta() {
 		/*
 		 * Tamanho da matricula: OK

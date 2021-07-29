@@ -18,19 +18,21 @@ public class ControllerTelaConfiguracaoAdmin {
 	private FacadeCasoDeUso1 facadeCasoDeUso1 = new FacadeCasoDeUso1();
 	private RegistradorSessaoLogin registradorSessaoLogin = RegistradorSessaoLogin.getInstance();
 	
-	public void tornarOuDesabilitarMembroAdministrador(long matriculaAMudar , String isAdmin){
+	public boolean tornarOuDesabilitarMembroAdministrador(long matriculaAMudar, String isAdmin) {
 		
 		long matriculaMembroAdministrador = registradorSessaoLogin.getMembroLogado().getMatricula();
 		boolean isAdministrador = isAdmin.equals("NAO");
 		
 		try {
 			
-			facadeCasoDeUso7.tornarOuDesabilitarMembroAdministrador(matriculaMembroAdministrador, matriculaAMudar, isAdministrador);
+			return facadeCasoDeUso7.tornarOuDesabilitarMembroAdministrador(matriculaMembroAdministrador, matriculaAMudar, isAdministrador);
 			
 		} catch (Exception e) {
 //			JOptionPane.showMessageDialog(null, e.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
+		
+		return false;
 	}
 	
 	public Membro[] getTodosOsMembros() {
