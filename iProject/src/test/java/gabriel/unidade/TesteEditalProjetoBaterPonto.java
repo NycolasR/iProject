@@ -1,4 +1,4 @@
-package gabriel;
+package gabriel.unidade;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
