@@ -1,0 +1,15 @@
+<map>
+  <entry>
+    <long>580267946</long>
+    <model.projetos.Edital>
+      <codigo>580267946</codigo>
+      <nome>Edital 1</nome>
+      <ativo>true</ativo>
+      <tipoItemProjeto>EDITAL</tipoItemProjeto>
+      <dataInicio>2021-07-29</dataInicio>
+      <dataTermino>2021-12-29</dataTermino>
+      <projetos/>
+      <grupos/>
+    </model.projetos.Edital>
+  </entry>
+</map>
