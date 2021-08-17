@@ -135,7 +135,7 @@ public class ControllerTelaCadastroProjetos {
 		
 		
 		validarMensalidade(aporteCusteioReaisMensal, projetos[posicaoProjeto].getAporteCusteioReais(), 
-				(long) (aporteCusteioReaisMensal*ChronoUnit.MONTHS.between(dataInicio, dataTermino)));
+				(long) (ChronoUnit.MONTHS.between(dataInicio, dataTermino)));
 		
 		facadeCasoDeUso6.adicionarParticipante(matriculaDoMembro, matriculaCandidato, codigoProjeto, dataInicio, dataTermino, aporteCusteioReaisMensal);
 	}
@@ -289,7 +289,9 @@ public class ControllerTelaCadastroProjetos {
 	}
 	
 	public static void validarMensalidade(float ValorMensalidade, float valorCusteioTotal, long duracaoProjetoMeses) throws Exception{
-		
+		System.out.println("ValorMensalidade: "+ValorMensalidade);
+		System.out.println("valorCusteioTotal: "+valorCusteioTotal);
+		System.out.println("duracaoProjetoMeses: "+duracaoProjetoMeses);
 		System.out.println(valorCusteioTotal < (ValorMensalidade*duracaoProjetoMeses));
 		
 		if(valorCusteioTotal < (ValorMensalidade*duracaoProjetoMeses)){
