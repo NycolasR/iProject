@@ -31,38 +31,30 @@ public class FacadeCasoDeUso1 {
 			String nome,
 			long matricula,
 			String login,
-			String senha) {
+			String senha) throws Exception {
 		
-		try {
-			// Verifica se o email é valido.
-			if(ValidadoraFormatoEmailLogin.validarLoginComum(login)) {
-				Membro membro = new Membro();
+		try {			
+			Membro membro = new Membro();
+			setarAtributos(membro, matricula, nome, login, senha);
+			membro.ativar();
 				
-				if(setarAtributos(membro, matricula, nome, login, senha)) {					
-					membro.ativar();
-					
-					Set<Membro> provisorio = daoxmlMembroConta.getTodosRegistros();
-					
-					membro.setAdministrador(provisorio.isEmpty()); // Se nao houver nenhum membro cadastrado esta instancia de membro será o administrador.
-					
-					daoxmlMembroConta.criar(membro);
-					
-					myLogger.info(this.getClass() + " - Membro Criado e gravado com sucesso!");
-					
-					return true;
-				}
-			}
+			Set<Membro> provisorio = daoxmlMembroConta.getTodosRegistros();
 			
-			myLogger.warning(this.getClass() +" Formato de Login invalido");
+			membro.setAdministrador(provisorio.isEmpty()); // Se nao houver nenhum membro cadastrado esta instancia de membro será o administrador.
+			
+			daoxmlMembroConta.criar(membro);
+			
+			myLogger.info(this.getClass() + " - Membro Criado e gravado com sucesso!");
+			
+			return true;
 			
 		} catch(Exception e) {
 			myLogger.severe(e.toString());
+			throw new Exception(e.getMessage());
 		}
-			
-		return false;
 	}
 	
-	public boolean atualizar(long matricula , String nome, String login, String senha) {
+	public boolean atualizar(long matricula , String nome, String login, String senha) throws Exception {
 		
 		Membro membro = null;
 		
@@ -75,14 +67,13 @@ public class FacadeCasoDeUso1 {
 		
 			daoxmlMembroConta.atualizar(matricula, membro);
 			
-			myLogger.info(this.getClass() +" - Membro Atualizado com sucesso!");
+			myLogger.info(this.getClass() + " - Membro atualizado com sucesso!");
 			
 			return true;
 		} catch (Exception e) {
 			myLogger.severe(e.toString());
+			throw new Exception(e.getMessage());
 		}
-		
-		return false;
 	}
 	
 		
@@ -114,8 +105,10 @@ public class FacadeCasoDeUso1 {
 
 	public void setarEmail(Membro membro, String email) throws Exception {
 		// E-mails devem obedecer o formato convencional
-		if(!ValidadoraFormatoEmailLogin.validarLoginComum(email))
+		if(!ValidadoraFormatoEmailLogin.validarLoginComum(email)) {
+			myLogger.warning(this.getClass() + " Formato de Login invalido");
 			throw new Exception("[ERRO] E-mails devem obedecer o formato convencional");
+		}
 		
 		membro.setEmail(email);
 	}

@@ -108,7 +108,7 @@ public class Teste {
 		}
 	}
 
-	private static void criarMembros() {
+	private static void criarMembros() throws Exception {
 		FacadeCasoDeUso1 uso1 = new FacadeCasoDeUso1();
 		
 		uso1.cadastrarConta("User 1", 111101111, "user1@user.com", "senha1"); // Coordenador do Projeto 1

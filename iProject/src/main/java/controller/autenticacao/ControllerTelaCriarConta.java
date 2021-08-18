@@ -16,15 +16,19 @@ public class ControllerTelaCriarConta {
 	
 	public void cadastrarConta(String nome, long matricula, String login, String senha) throws Exception {
 		
-		if(!facadeCasoDeUso1.cadastrarConta(nome, matricula, login, senha)) {
-			throw new Exception("[ERRO] Não foi possivel cadastrar a conta");
+		try {
+			facadeCasoDeUso1.cadastrarConta(nome, matricula, login, senha);
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
 		}
 	}
 	
 	public void atualizarConta(long matricula , String nome, String login, String senha) throws Exception {
 		
-		if(!facadeCasoDeUso1.atualizar(matricula, nome, login, senha)) {
-			throw new Exception("[ERRO] Não foi possivel atualizar a conta");
+		try {
+			facadeCasoDeUso1.atualizar(matricula, nome, login, senha);
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
 		}
 	}
 	

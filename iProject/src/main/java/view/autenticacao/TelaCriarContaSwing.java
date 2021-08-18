@@ -28,8 +28,8 @@ public class TelaCriarContaSwing extends JPanel implements TelaCriarConta{
 	private static final long serialVersionUID = 1L;
 
 	private ControllerTelaCriarConta controllerTelaCriarConta;
-	private JTextField nomeField, emailField;
-	private JFormattedTextField matriculaField;
+	private JTextField nomeField, emailField, matriculaField;
+//	private JFormattedTextField ;
 	private JPasswordField passwordField;
 	private Font fonteParaTextos = new Font("Arial", Font.PLAIN, 15);
 	
@@ -37,22 +37,30 @@ public class TelaCriarContaSwing extends JPanel implements TelaCriarConta{
 		
 		public void actionPerformed(ActionEvent e) {
 			
-			if(nomeField.getText().isEmpty() || emailField.getText().isEmpty() || String.valueOf(passwordField.getPassword()).isEmpty()) {
+			if(nomeField.getText().isEmpty() 
+					|| emailField.getText().isEmpty() 
+					|| String.valueOf(passwordField.getPassword()).isEmpty()) {
+				
 				JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
 				
-			}else if(matriculaField.getText().trim().length() < 9 ) {
+			} else if(matriculaField.getText().trim().length() < 9 ) {
+				
 				JOptionPane.showMessageDialog(null, "Matricula deve conter 9 digitos", null, JOptionPane.WARNING_MESSAGE);
-			}else {
+				
+			} else {
+				
 				try {
-					controllerTelaCriarConta.cadastrarConta(nomeField.getText(), Integer.parseInt(matriculaField.getText()),
-							emailField.getText(), String.valueOf(passwordField.getPassword()));
+					controllerTelaCriarConta.cadastrarConta(nomeField.getText(), 
+							Integer.parseInt(matriculaField.getText()),
+							emailField.getText(), 
+							String.valueOf(passwordField.getPassword()));
+					
 					JOptionPane.showMessageDialog(null, "Conta Cadastrada com Sucesso", null, JOptionPane.WARNING_MESSAGE);
 					
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage(), null, JOptionPane.ERROR_MESSAGE);
 				}
 			}
-			
 		}
 	}
 	
@@ -89,8 +97,9 @@ public class TelaCriarContaSwing extends JPanel implements TelaCriarConta{
 		
 		try {
 			
-			MaskFormatter formatoMatriculaECodigo = new MaskFormatter("#########");
-			matriculaField = new JFormattedTextField(formatoMatriculaECodigo);
+//			MaskFormatter formatoMatriculaECodigo = new MaskFormatter("#########");
+//			matriculaField = new JFormattedTextField(formatoMatriculaECodigo);
+			matriculaField = new JTextField();
 			matriculaField.setToolTipText("000000000");
 			matriculaField.setBounds(150, 150, 200, 30);
 			add(matriculaField);
