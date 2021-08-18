@@ -77,13 +77,13 @@ public class TelaAutenticacaoSwing extends JPanel implements TelaAutenticacao {
 		emailField = new JTextField();
 		emailField.setToolTipText("exemplo@exemplo.com");
 		emailField.setBounds(120, 100, 200, 30);
-		emailField.addFocusListener(new OuvinteFocoJTextField(emailField));
+//		emailField.addFocusListener(new OuvinteFocoJTextField(emailField));
 		add(emailField);
 		
 		passwordField = new JPasswordField();
 		passwordField.setToolTipText("Sua senha");
 		passwordField.setBounds(120, 150, 200, 30);
-		passwordField.addFocusListener(new OuvinteFocoJTextField(passwordField));
+//		passwordField.addFocusListener(new OuvinteFocoJTextField(passwordField));
 		add(passwordField);
 	}
 	
