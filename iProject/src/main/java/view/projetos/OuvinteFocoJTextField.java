@@ -21,18 +21,18 @@ public class OuvinteFocoJTextField implements FocusListener {
 	
 	@Override
 	public void focusGained(FocusEvent arg0) {
-		JTextField tfd = (JTextField) componente;
-		tfd.setBackground(Color.WHITE); // Ao se ganhar o foco, o fundo do textField fica branco
+//		JTextField tfd = (JTextField) componente;
+//		tfd.setBackground(Color.WHITE); // Ao se ganhar o foco, o fundo do textField fica branco
 	}
 	
 	@Override
 	public void focusLost(FocusEvent e) {
-		JTextField tfd = (JTextField) componente;
+//		JTextField tfd = (JTextField) componente;
 		
-		if (tfd.getText().isEmpty())
-			tfd.setBackground(Color.RED); // Foco perdido sem conteudo: vermelho
-		else
-			tfd.setBackground(Color.GREEN); // Foco perdido com conteudo: verde
+//		if (tfd.getText().isEmpty())
+//			tfd.setBackground(Color.RED); // Foco perdido sem conteudo: vermelho
+//		else
+//			tfd.setBackground(Color.GREEN); // Foco perdido com conteudo: verde
 	}
 	
 }
